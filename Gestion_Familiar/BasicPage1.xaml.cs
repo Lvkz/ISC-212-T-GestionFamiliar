@@ -19,9 +19,9 @@ namespace Gestion_Familiar
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainScreen : Gestion_Familiar.Common.LayoutAwarePage
+    public sealed partial class BasicPage1 : Gestion_Familiar.Common.LayoutAwarePage
     {
-        public MainScreen()
+        public BasicPage1()
         {
             this.InitializeComponent();
         }
@@ -37,18 +37,6 @@ namespace Gestion_Familiar
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            // Restore values stored in session state.
-            if (pageState != null && pageState.ContainsKey("greetingOutputText"))
-            {
-                greetingOutput.Text = pageState["greetingOutputText"].ToString();
-            }
-
-            // Restore values stored in app data.
-            Windows.Storage.ApplicationDataContainer roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
-            if (roamingSettings.Values.ContainsKey("userName"))
-            {
-                nameInput.Text = roamingSettings.Values["userName"].ToString();
-            }
         }
 
         /// <summary>
@@ -59,25 +47,6 @@ namespace Gestion_Familiar
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
-            pageState["greetingOutputText"] = greetingOutput.Text;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            greetingOutput.Text = "Hello, " + nameInput.Text + "!";
-        }
-
-        private void NameInput_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Windows.Storage.ApplicationDataContainer roamingSettings =
-                Windows.Storage.ApplicationData.Current.RoamingSettings;
-
-            roamingSettings.Values["username"] = nameInput.Text;
-        }
-
-        private void PhotoPageButton_Click(object sender, RoutedEventArgs e)
-        {
-           
         }
     }
 }
