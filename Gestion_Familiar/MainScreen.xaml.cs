@@ -42,21 +42,7 @@ namespace Gestion_Familiar
         {
             
             // Restore values stored in session state.
-<<<<<<< HEAD
-            if (pageState != null && pageState.ContainsKey("greetingOutputText"))
-            {
-                greetingOutput.Text = pageState["greetingOutputText"].ToString();
-            }
 
-            // Restore values stored in app data.
-            Windows.Storage.ApplicationDataContainer roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
-            if (roamingSettings.Values.ContainsKey("userName"))
-            {
-                nameInput.Text = roamingSettings.Values["userName"].ToString();
-            }
-           
-=======
->>>>>>> eaab7ea933d46084cfd595010af480a40d441170
         }
 
         /// <summary>
