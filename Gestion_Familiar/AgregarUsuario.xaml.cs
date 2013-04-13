@@ -26,9 +26,9 @@ namespace Gestion_Familiar
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class BasicPage1 : Gestion_Familiar.Common.LayoutAwarePage
+    public sealed partial class AgregarUsuario : Gestion_Familiar.Common.LayoutAwarePage
     {
-        public BasicPage1()
+        public AgregarUsuario()
         {
             this.InitializeComponent();
         }
@@ -80,10 +80,8 @@ namespace Gestion_Familiar
                     {
                         bitmapImage.SetSource(fileStream);
                     }
-                    CapturedPhoto.Source = bitmapImage;
-                   
-                    uno.Text = file.Path;
-                  
+
+                    CapturedPhoto.Source = bitmapImage;                  
                 }
                 else
                 {

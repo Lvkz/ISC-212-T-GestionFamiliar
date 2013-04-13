@@ -19,14 +19,11 @@ namespace Gestion_Familiar
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainScreen : Gestion_Familiar.Common.LayoutAwarePage
+    public sealed partial class AgregarProducto : Gestion_Familiar.Common.LayoutAwarePage
     {
-        public MainScreen()
+        public AgregarProducto()
         {
-
-            
             this.InitializeComponent();
-            
         }
 
         /// <summary>
@@ -40,23 +37,6 @@ namespace Gestion_Familiar
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            
-            // Restore values stored in session state.
-<<<<<<< HEAD
-            if (pageState != null && pageState.ContainsKey("greetingOutputText"))
-            {
-                greetingOutput.Text = pageState["greetingOutputText"].ToString();
-            }
-
-            // Restore values stored in app data.
-            Windows.Storage.ApplicationDataContainer roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
-            if (roamingSettings.Values.ContainsKey("userName"))
-            {
-                nameInput.Text = roamingSettings.Values["userName"].ToString();
-            }
-           
-=======
->>>>>>> eaab7ea933d46084cfd595010af480a40d441170
         }
 
         /// <summary>
@@ -68,22 +48,5 @@ namespace Gestion_Familiar
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
         }
-
-        private void botonAgregarUsuario_Click(object sender, RoutedEventArgs e)
-        {
-            if (pageRoot != null)
-            {
-
-                this.Frame.Navigate(typeof(AgregarUsuario));
-            }
-        }
-
-        
-
-       
-
-        
-       
-       
     }
 }

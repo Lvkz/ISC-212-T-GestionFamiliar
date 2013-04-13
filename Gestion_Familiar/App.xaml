@@ -28,10 +28,57 @@
 
             <Style x:Key="PicturesAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
                 <Setter Property="AutomationProperties.AutomationId" Value="PicturesAppBarButton"/>
-                <Setter Property="AutomationProperties.Name" Value="Pictures"/>
+                <Setter Property="AutomationProperties.Name" Value="Agregar Usuarios"/>
                 <Setter Property="Content" Value="&#xE158;"/>
             </Style>
 
+            <Style x:Key="EditAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+                <Setter Property="AutomationProperties.AutomationId" Value="EditAppBarButton"/>
+                <Setter Property="AutomationProperties.Name" Value="Editar Usuario"/>
+                <Setter Property="Content" Value="&#xE104;"/>
+            </Style>
+
+            <Style x:Key="RemoveAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+                <Setter Property="AutomationProperties.AutomationId" Value="RemoveAppBarButton"/>
+                <Setter Property="AutomationProperties.Name" Value="Eliinar Usuario"/>
+                <Setter Property="Content" Value="&#xE108;"/>
+            </Style>
+            
+            <Style x:Key="AddAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+                <Setter Property="AutomationProperties.AutomationId" Value="AddAppBarButton"/>
+                <Setter Property="AutomationProperties.Name" Value="Añadir Usuario"/>
+                <Setter Property="Content" Value="&#xE109;"/>
+            </Style>
+
+            <Style x:Key="RefreshAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+                <Setter Property="AutomationProperties.AutomationId" Value="RefreshAppBarButton"/>
+                <Setter Property="AutomationProperties.Name" Value="Refrescar Datos"/>
+                <Setter Property="Content" Value="&#xE117;"/>
+            </Style>
+
+            <Style x:Key="HelpAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+                <Setter Property="AutomationProperties.AutomationId" Value="HelpAppBarButton"/>
+                <Setter Property="AutomationProperties.Name" Value="Ayuda"/>
+                <Setter Property="Content" Value="&#xE11B;"/>
+            </Style>
+
+            <Style x:Key="PeopleAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+                <Setter Property="AutomationProperties.AutomationId" Value="PeopleAppBarButton"/>
+                <Setter Property="AutomationProperties.Name" Value="Agregar Usuario"/>
+                <Setter Property="Content" Value="&#xE125;"/>
+            </Style>
+
+            <Style x:Key="ShopAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+                <Setter Property="AutomationProperties.AutomationId" Value="ShopAppBarButton"/>
+                <Setter Property="AutomationProperties.Name" Value="Registrar Producto"/>
+                <Setter Property="Content" Value="&#xE14D;"/>
+            </Style>
+
+            <Style x:Key="SaveAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+                <Setter Property="AutomationProperties.AutomationId" Value="SaveAppBarButton"/>
+                <Setter Property="AutomationProperties.Name" Value="Guardar"/>
+                <Setter Property="Content" Value="&#xE105;"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
