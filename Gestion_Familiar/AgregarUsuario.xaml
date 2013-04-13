@@ -24,6 +24,7 @@
         <x:String x:Key="Agregar">Agregar</x:String>
         <x:String x:Key="LimpiarCampos">Limpiar Campos</x:String>
         <x:String x:Key="EliminarUsuario">Eliminar Usuario</x:String>
+        <x:String x:Key="Accesos">Accesos de Usuario:</x:String>
     </Page.Resources>
 
     <common:LayoutAwarePage.BottomAppBar>
@@ -31,7 +32,7 @@
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button x:Name="botonAgregar" Style="{StaticResource AddAppBarButtonStyle}"/>
-                    <Button x:Name="botonLimpiar" Style="{StaticResource EditAppBarButtonStyle}" />
+                    <Button x:Name="botonEditar" Style="{StaticResource EditAppBarButtonStyle}" />
                     <Button x:Name="botonEliminar" Style="{StaticResource RemoveAppBarButtonStyle}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
@@ -47,7 +48,7 @@
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
-    <Grid x:Name="gridAgregarUsuario" Style="{StaticResource LayoutRootStyle}">
+    <Grid x:Name="gridAgregarUsuario" Style="{StaticResource LayoutRootStyle}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
@@ -67,15 +68,16 @@
         <Grid x:Name="gridFoto" Grid.Row="1" Margin="-10,0,10,0"  >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="135"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="1145"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="1" Margin="0,0,859,0">
+            <StackPanel Grid.Column="1" Margin="480,-10,311,126">
                 <TextBlock TextWrapping="Wrap" Text="{StaticResource Nombre}" Style="{StaticResource BasicTextStyle}"/>
                 <TextBox x:Name="textboxNombre" TextWrapping="Wrap"/>
                 <TextBlock TextWrapping="Wrap" Text="{StaticResource Apellido}" Style="{StaticResource BasicTextStyle}" Margin="0,10,0,0"/>
                 <TextBox x:Name="textboxApellido" TextWrapping="Wrap"/>
                 <TextBlock TextWrapping="Wrap" Text="{StaticResource Edad}" Style="{StaticResource BasicTextStyle}" Margin="0,10,0,0"/>
                 <TextBox x:Name="textboxEdad" TextWrapping="Wrap"/>
+                <TextBlock TextWrapping="Wrap" Text="{StaticResource Accesos}" Style="{StaticResource BasicTextStyle}"/>
                 <StackPanel Height="40" Orientation="Horizontal" Margin="0,10,-3,0" HorizontalAlignment="Right">
                     <ToggleButton x:Name="toogleAdulto" Content="{StaticResource Estado}" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0" Width="100"/>
                     <ToggleButton x:Name="toogleCocina" Content="{StaticResource Cocina}" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="100"/>
@@ -88,7 +90,11 @@
                     </Border>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="608" Margin="729,10,0,0" VerticalAlignment="Top" Width="406"/>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="534" VerticalAlignment="Top" Width="468" Margin="0,-4,0,0">
+                <Border BorderBrush="Black" BorderThickness="2" Height="532">
+                    <ListView x:Name="listadoUsuarios" Margin="0,0,-4,-2"/>
+                </Border>
+            </StackPanel>
         </Grid>
 
         <VisualStateManager.VisualStateGroups>
