@@ -13,13 +13,17 @@
     <Page.Resources>
 
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
-        <x:String x:Key="AppName">Gestión Familiar</x:String>
+        <x:String x:Key="AppName">Sistema Gestión Familiar</x:String>
     </Page.Resources>
-    <common:LayoutAwarePage.TopAppBar>
+    <common:LayoutAwarePage.BottomAppBar>
         <AppBar>
-            <Button x:Name="AgregarUsuarioBoton" HorizontalAlignment="Right" Style="{StaticResource PicturesAppBarButtonStyle}" Click="AgregarUsuarioBoton_Clic"/>
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="AgregarUsuarioBoton" HorizontalAlignment="Right" Style="{StaticResource PeopleAppBarButtonStyle}" Click="AgregarUsuarioBoton_Clic"/>
+                </StackPanel>
+            </Grid>
         </AppBar>
-    </common:LayoutAwarePage.TopAppBar>
+    </common:LayoutAwarePage.BottomAppBar>
 
     <!--
         This grid acts as a root panel for the page that defines two rows:
@@ -42,14 +46,7 @@
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
 
-        <StackPanel Grid.Row="1" Margin="120,30,0,0">
-            <TextBlock Text="What's your name?" Style="{StaticResource BasicTextStyle}"/>
-            <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
-                <TextBox x:Name="nameInput" Width="300" HorizontalAlignment="Left" TextChanged="NameInput_TextChanged"/>
-                <Button Content="Say &quot;Hello&quot;" Click="Button_Click"/>
-            </StackPanel>
-            <TextBlock x:Name="greetingOutput" Style="{StaticResource BigGreenTextStyle}"/>
-        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="110,30,10,0"/>
 
         <VisualStateManager.VisualStateGroups>
 

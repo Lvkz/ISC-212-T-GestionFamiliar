@@ -19,9 +19,9 @@ namespace Gestion_Familiar
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainScreen : Gestion_Familiar.Common.LayoutAwarePage
+    public sealed partial class AgregarProducto : Gestion_Familiar.Common.LayoutAwarePage
     {
-        public MainScreen()
+        public AgregarProducto()
         {
             this.InitializeComponent();
         }
@@ -37,7 +37,6 @@ namespace Gestion_Familiar
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            // Restore values stored in session state.
         }
 
         /// <summary>
@@ -49,20 +48,5 @@ namespace Gestion_Familiar
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
         }
-     
-
-        private void AgregarUsuarioBoton_Clic(object sender, RoutedEventArgs e)
-        {
-
-            if (pageRoot != null)
-            {
-               
-                this.Frame.Navigate(typeof(AgregarUsuario));
-            }
-
-        }
-
-       
-       
     }
 }
