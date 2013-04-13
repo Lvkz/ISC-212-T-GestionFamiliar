@@ -49,17 +49,14 @@ namespace Gestion_Familiar
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
         }
-     
 
-        private void AgregarUsuarioBoton_Clic(object sender, RoutedEventArgs e)
+        private void botonAgregarUsuario_Click(object sender, RoutedEventArgs e)
         {
-
             if (pageRoot != null)
             {
-               
+
                 this.Frame.Navigate(typeof(AgregarUsuario));
             }
-
         }
 
        

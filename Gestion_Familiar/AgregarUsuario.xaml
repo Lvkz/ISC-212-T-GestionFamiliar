@@ -34,10 +34,10 @@
                     <Button x:Name="botonAgregar" Style="{StaticResource AddAppBarButtonStyle}"/>
                     <Button x:Name="botonEditar" Style="{StaticResource EditAppBarButtonStyle}" />
                     <Button x:Name="botonEliminar" Style="{StaticResource RemoveAppBarButtonStyle}" />
+                    <Button x:Name="botonRefrescar" Style="{StaticResource RefreshAppBarButtonStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="botonRefrescar" Style="{StaticResource RefreshAppBarButtonStyle}"/>
-                    <Button x:Name="botonAyuda" Style="{StaticResource HelpAppBarButtonStyle}" />
+                    <Button x:Name="botonGuardar" Style="{StaticResource SaveAppBarButtonStyle}"/>
                 </StackPanel>
             </Grid>
         </AppBar>

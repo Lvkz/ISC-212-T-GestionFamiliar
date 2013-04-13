@@ -68,6 +68,17 @@
                 <Setter Property="Content" Value="&#xE125;"/>
             </Style>
 
+            <Style x:Key="ShopAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+                <Setter Property="AutomationProperties.AutomationId" Value="ShopAppBarButton"/>
+                <Setter Property="AutomationProperties.Name" Value="Registrar Producto"/>
+                <Setter Property="Content" Value="&#xE14D;"/>
+            </Style>
+
+            <Style x:Key="SaveAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+                <Setter Property="AutomationProperties.AutomationId" Value="SaveAppBarButton"/>
+                <Setter Property="AutomationProperties.Name" Value="Guardar"/>
+                <Setter Property="Content" Value="&#xE105;"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

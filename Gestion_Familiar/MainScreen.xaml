@@ -19,7 +19,9 @@
         <AppBar>
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="AgregarUsuarioBoton" HorizontalAlignment="Right" Style="{StaticResource PeopleAppBarButtonStyle}" Click="AgregarUsuarioBoton_Clic"/>
+                    <Button x:Name="botonAgregarUsuario" HorizontalAlignment="Right" Style="{StaticResource PeopleAppBarButtonStyle}" Click="botonAgregarUsuario_Click"/>
+                    <Button x:Name="botonAgregarProducto" HorizontalAlignment="Right" Style="{StaticResource ShopAppBarButtonStyle}" />
+                    
                 </StackPanel>
             </Grid>
         </AppBar>
