@@ -21,11 +21,12 @@
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
-    <Grid Style="{StaticResource LayoutRootStyle}">
+    <Grid x:Name="AgregarUsuario" Style="{StaticResource LayoutRootStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
 
         <!-- Back button and page title -->
         <Grid>
@@ -35,7 +36,11 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
+
         </Grid>
+        <Button x:Name="CaptureButton" Content="Capture Photo" Margin="558,58,0,536" Click="CapturePhoto_Click" Grid.Row="1"/>
+        <Image x:Name="CapturedPhoto" AutomationProperties.Name="A placeholder image" Source="Assets/placeholder-sdk.png" HorizontalAlignment="Left" VerticalAlignment="Top" MaxWidth="392" Stretch="Fill" />
+        <TextBlock Name="uno" HorizontalAlignment="Left" Margin="841,58,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="67" Width="306"/>
 
         <VisualStateManager.VisualStateGroups>
 

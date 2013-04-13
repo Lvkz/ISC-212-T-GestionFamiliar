@@ -17,7 +17,7 @@
     </Page.Resources>
     <common:LayoutAwarePage.TopAppBar>
         <AppBar>
-            <Button x:Name="photoPageButton" Click="PhotoPageButton_Click" HorizontalAlignment="Right" Style="{StaticResource PicturesAppBarButtonStyle}"/>
+            <Button x:Name="AgregarUsuarioBoton" HorizontalAlignment="Right" Style="{StaticResource PicturesAppBarButtonStyle}" Click="AgregarUsuarioBoton_Clic"/>
         </AppBar>
     </common:LayoutAwarePage.TopAppBar>
 

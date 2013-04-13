@@ -75,9 +75,20 @@ namespace Gestion_Familiar
             roamingSettings.Values["username"] = nameInput.Text;
         }
 
-        private void PhotoPageButton_Click(object sender, RoutedEventArgs e)
+     
+
+        private void AgregarUsuarioBoton_Clic(object sender, RoutedEventArgs e)
         {
-           
+
+            if (pageRoot != null)
+            {
+               
+                this.Frame.Navigate(typeof(BasicPage1));
+            }
+
         }
+
+       
+       
     }
 }
