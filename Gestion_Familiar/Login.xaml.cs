@@ -12,6 +12,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using Gestion_Familiar.Clases;
+using Windows.UI.Popups;
+
+
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
 namespace Gestion_Familiar
@@ -19,14 +23,11 @@ namespace Gestion_Familiar
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainScreen : Gestion_Familiar.Common.LayoutAwarePage
+    public sealed partial class Login : Gestion_Familiar.Common.LayoutAwarePage
     {
-        public MainScreen()
+        public Login()
         {
-
-            
             this.InitializeComponent();
-            
         }
 
         /// <summary>
@@ -40,20 +41,6 @@ namespace Gestion_Familiar
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            
-            // Restore values stored in session state.
-            if (pageState != null && pageState.ContainsKey("greetingOutputText"))
-            {
-                greetingOutput.Text = pageState["greetingOutputText"].ToString();
-            }
-
-            // Restore values stored in app data.
-            Windows.Storage.ApplicationDataContainer roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
-            if (roamingSettings.Values.ContainsKey("userName"))
-            {
-                nameInput.Text = roamingSettings.Values["userName"].ToString();
-            }
-           
         }
 
         /// <summary>
@@ -64,41 +51,47 @@ namespace Gestion_Familiar
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
-            pageState["greetingOutputText"] = greetingOutput.Text;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Inicio_Click(object sender, RoutedEventArgs e)
         {
-            greetingOutput.Text = "Hello, " + nameInput.Text + "!";
-        }
+           // Conexion.AbrirConexion();
+            btCancelar.IsEnabled = false;
+            btIniciar.IsEnabled = false;
 
-        private void NameInput_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Windows.Storage.ApplicationDataContainer roamingSettings =
-                Windows.Storage.ApplicationData.Current.RoamingSettings;
+          //  MySqlCommand preguntar = new MySqlCommand("SELECT id FROM usuarios WHERE nombre='" + tbNombre.Text + "' AND contrasena='" + pwContrasena.Password + "'", Conexion.varConexion);
+          //  MySqlDataReader data = preguntar.ExecuteReader();
 
-            roamingSettings.Values["username"] = nameInput.Text;
-        }
-
-     
-
-        private void AgregarUsuarioBoton_Clic(object sender, RoutedEventArgs e)
-        {
-
-            if (pageRoot != null)
+           
+            if (tbNombre.Text=="cesar"&&pwContrasena.Password=="123")//data.Read())
             {
-               
-                this.Frame.Navigate(typeof(BasicPage1));
+               // MainScreen uno = new MainScreen();
+                
+                Frame.Navigate(typeof(MainScreen));
+           //     Conexion.IdEntradaSistema = Convert.ToInt32(data.GetString(0));
+            //    Conexion.CerrarConexion();
+
+              
+            }
+            else
+            {
+                MessageDialog msgDialog = new MessageDialog("Error", " usuario y/o contraseña no son correctos ");
+
+                msgDialog.ShowAsync();
+                //data.Close();
+                btCancelar.IsEnabled = true;
+                btIniciar.IsEnabled = true;
             }
 
+         //   Conexion.CerrarConexion();
+
         }
 
-        
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainScreen));
+        }
 
-       
-
-        
-       
        
     }
 }

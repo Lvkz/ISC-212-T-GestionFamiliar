@@ -75,7 +75,9 @@ namespace Gestion_Familiar
                 }
             }
             // Ensure the current window is active
+         
             Window.Current.Activate();
+
         }
 
         /// <summary>
