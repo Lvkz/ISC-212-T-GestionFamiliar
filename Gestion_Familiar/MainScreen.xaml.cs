@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Windows.UI.Popups;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Globalization;
+
+using SQLite;
+
+
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -24,9 +30,9 @@ namespace Gestion_Familiar
         public MainScreen()
         {
 
-            
+
             this.InitializeComponent();
-            
+
         }
 
         /// <summary>
@@ -40,7 +46,7 @@ namespace Gestion_Familiar
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            
+
             // Restore values stored in session state.
 
         }
@@ -64,12 +70,20 @@ namespace Gestion_Familiar
             }
         }
 
-        
+        private void Inicio_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Login));
 
-       
 
-        
-       
-       
+
+
+        }
+
+
+
     }
+
+        
+       
+
 }

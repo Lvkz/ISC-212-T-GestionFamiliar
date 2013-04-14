@@ -11,9 +11,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using Windows.Web;
+using System.Net;
 using Gestion_Familiar.Clases;
 using Windows.UI.Popups;
+using System.Threading;
 
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
@@ -28,6 +30,7 @@ namespace Gestion_Familiar
         public Login()
         {
             this.InitializeComponent();
+            // Create a new HttpWebRequest object.
         }
 
         /// <summary>
@@ -52,7 +55,7 @@ namespace Gestion_Familiar
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
         }
-
+       
         private void Inicio_Click(object sender, RoutedEventArgs e)
         {
            // Conexion.AbrirConexion();
@@ -66,7 +69,9 @@ namespace Gestion_Familiar
             if (tbNombre.Text=="cesar"&&pwContrasena.Password=="123")//data.Read())
             {
                // MainScreen uno = new MainScreen();
-                
+
+
+               
                 Frame.Navigate(typeof(MainScreen));
            //     Conexion.IdEntradaSistema = Convert.ToInt32(data.GetString(0));
             //    Conexion.CerrarConexion();

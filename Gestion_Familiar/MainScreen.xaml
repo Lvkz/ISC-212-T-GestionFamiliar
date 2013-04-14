@@ -21,7 +21,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button x:Name="botonAgregarUsuario" HorizontalAlignment="Right" Style="{StaticResource PeopleAppBarButtonStyle}" Click="botonAgregarUsuario_Click"/>
                     <Button x:Name="botonAgregarProducto" HorizontalAlignment="Right" Style="{StaticResource ShopAppBarButtonStyle}" />
-                    
+
                 </StackPanel>
             </Grid>
         </AppBar>
@@ -48,7 +48,9 @@
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
 
-        <StackPanel Grid.Row="1" Margin="110,30,10,0"/>
+        <StackPanel Grid.Row="1" Margin="161,131,418,139">
+            <Button  x:Name="btIniciar" Content="Iniciar" HorizontalAlignment="Left" Margin="473,0,0,0" VerticalAlignment="Top" Width="222" Height="82" Click="Inicio_Click" FontSize="24"/>
+        </StackPanel>
 
         <VisualStateManager.VisualStateGroups>
 
