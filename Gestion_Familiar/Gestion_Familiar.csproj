@@ -106,6 +106,8 @@
     </SDKReference>
     <SDKReference Include="SQLite.WinRT, Version=3.7.16.2">
       <Name>SQLite for Windows Runtime</Name>
+    <SDKReference Include="RadControls for Windows 8, Version=2013.1.219">
+      <Name>RadControls for Windows 8</Name>
     </SDKReference>
   </ItemGroup>
   <ItemGroup>

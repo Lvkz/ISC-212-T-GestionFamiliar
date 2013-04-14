@@ -70,6 +70,7 @@ namespace Gestion_Familiar
             }
         }
 
+<<<<<<< HEAD
         private void Inicio_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Login));
@@ -81,6 +82,19 @@ namespace Gestion_Familiar
 
 
 
+=======
+        private void botonAgregarProducto_Click(object sender, RoutedEventArgs e)
+        {
+            if (pageRoot != null)
+            {
+
+                this.Frame.Navigate(typeof(AgregarProducto));
+            }
+        }
+
+       
+       
+>>>>>>> 48e80b134848b8566fcf2c64dfe4af68e7ba0e9e
     }
 
         

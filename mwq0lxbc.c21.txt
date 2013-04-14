@@ -1,0 +1,30 @@
+﻿Merge branch 'master' of https://github.com/Lvkz/GestionFamiliar
+
+Conflicts:
+	Gestion_Familiar/MainScreen.xaml
+	Gestion_Familiar/MainScreen.xaml.cs
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 4 and 1 different commit each, respectively.
+#
+# All conflicts fixed but you are still merging.
+#   (use "git commit" to conclude merge)
+#
+# Changes to be committed:
+#
+#	modified:   Gestion_Familiar/AgregarProducto.xaml
+#	modified:   Gestion_Familiar/AgregarProducto.xaml.cs
+#	modified:   Gestion_Familiar/Gestion_Familiar.csproj
+#	modified:   Gestion_Familiar/MainScreen.xaml
+#	modified:   Gestion_Familiar/MainScreen.xaml.cs
+#
+
