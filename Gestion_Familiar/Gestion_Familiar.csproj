@@ -101,6 +101,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <SDKReference Include="RadControls for Windows 8, Version=2013.1.219">
+      <Name>RadControls for Windows 8</Name>
+    </SDKReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgregarProducto.xaml.cs">

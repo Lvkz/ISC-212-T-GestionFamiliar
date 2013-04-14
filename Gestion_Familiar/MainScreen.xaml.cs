@@ -59,6 +59,15 @@ namespace Gestion_Familiar
             }
         }
 
+        private void botonAgregarProducto_Click(object sender, RoutedEventArgs e)
+        {
+            if (pageRoot != null)
+            {
+
+                this.Frame.Navigate(typeof(AgregarProducto));
+            }
+        }
+
        
        
     }

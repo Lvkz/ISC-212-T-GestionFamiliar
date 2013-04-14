@@ -48,5 +48,10 @@ namespace Gestion_Familiar
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
         }
+
+        private void listviewCategorias_Changed(object sender, SelectionChangedEventArgs e)
+        {
+            labelSeleccion.Text = e.ToString();
+        }
     }
 }

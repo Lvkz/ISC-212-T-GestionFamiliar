@@ -17,11 +17,14 @@
     </Page.Resources>
     <common:LayoutAwarePage.BottomAppBar>
         <AppBar>
+            <AppBar.Background>
+                <SolidColorBrush Color="Black" Opacity="0.7"/>
+            </AppBar.Background>
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button x:Name="botonAgregarUsuario" HorizontalAlignment="Right" Style="{StaticResource PeopleAppBarButtonStyle}" Click="botonAgregarUsuario_Click"/>
-                    <Button x:Name="botonAgregarProducto" HorizontalAlignment="Right" Style="{StaticResource ShopAppBarButtonStyle}" />
-                    
+                    <Button x:Name="botonAgregarProducto" HorizontalAlignment="Right" Style="{StaticResource ShopAppBarButtonStyle}" Click="botonAgregarProducto_Click" />
+
                 </StackPanel>
             </Grid>
         </AppBar>
@@ -48,7 +51,20 @@
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
 
-        <StackPanel Grid.Row="1" Margin="110,30,10,0"/>
+        <StackPanel Grid.Row="1" Margin="110,30,10,0">
+            <StackPanel Height="180" Orientation="Horizontal">
+                <Button Content="Consumir" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" FontFamily="Segoe UI Semibold" FontSize="22" Background="#FF1BA1E2" VerticalContentAlignment="Bottom" BorderBrush="Black" BorderThickness="4"/>
+                <Button Content="Cocinar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FF339933" BorderBrush="Black" BorderThickness="4"/>
+                <Button Content="Agregar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FFF09609" BorderBrush="Black" BorderThickness="4"/>
+                <Button Content="Por Vencer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FFE51400" BorderBrush="Black" BorderThickness="4"/>
+            </StackPanel>
+            <StackPanel Height="180" Margin="0,90,0,0" Orientation="Horizontal">
+                <Button Content="Listado" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FFA05000" BorderBrush="Black" BorderThickness="4"/>
+                <Button Content="Mapa" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FF00ABA9" BorderBrush="Black" BorderThickness="4"/>
+                <Button Content="Comprar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FFA200FF" BorderBrush="Black" BorderThickness="4"/>
+                <Button Content="Agotados" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FF8CBF26" BorderBrush="Black" BorderThickness="4"/>
+            </StackPanel>
+        </StackPanel>
 
         <VisualStateManager.VisualStateGroups>
 
