@@ -22,8 +22,29 @@ namespace Gestion_Familiar
 {
 
 
+<<<<<<< HEAD
 
 
+=======
+        public override string ToString()
+        {
+            return string.Format("{0}", Categoria);
+        }
+    }
+
+    public class UnidadesProducto
+    {
+        [AutoIncrement, PrimaryKey]
+        public int ID { get; set; }
+
+        public string  tipoUnidad  { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}", tipoUnidad);
+        }
+    }
+>>>>>>> 3687077d91fb2d603ec1631a148327bcc76fd722
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
