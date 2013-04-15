@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Windows.Foundation;
+using Windows.UI.Popups;
 
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -73,9 +74,7 @@ namespace Gestion_Familiar
         {
             try
             {
-                // rootPage.NotifyUser("", NotifyType.StatusMessage);
-
-                // Using Windows.Media.Capture.CameraCaptureUI API to capture a photo
+               
                 CameraCaptureUI dialog = new CameraCaptureUI();
                 Size aspectRatio = new Size(16, 9);
                 dialog.PhotoSettings.CroppedAspectRatio = aspectRatio;
@@ -94,12 +93,15 @@ namespace Gestion_Familiar
                 }
                 else
                 {
-                    //  rootPage.NotifyUser("No photo captured.", NotifyType.StatusMessage);
+                    MessageDialog msgDialog1 = new MessageDialog("No photo", "Error");
+                    msgDialog1.ShowAsync();
+                   
                 }
             }
             catch (Exception ex)
             {
-                //  rootPage.NotifyUser(ex.Message, NotifyType.ErrorMessage);
+                MessageDialog msgDialog = new MessageDialog(ex.Message, "Error");
+                msgDialog.ShowAsync();
             }
 
         }
@@ -124,8 +126,9 @@ namespace Gestion_Familiar
 
                     });
                 });
-
-                //  listviewCategorias.ItemsSource = db.Table<Categorias>();
+                MessageDialog msgDialog = new MessageDialog("Usuario registrado", "Agregar Usuario");
+                msgDialog.ShowAsync();
+               
             }
         }
 
