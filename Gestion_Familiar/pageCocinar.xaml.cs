@@ -37,6 +37,19 @@ namespace Gestion_Familiar
             }
         }
 
+        public class listaProducto
+        {
+            [AutoIncrement, PrimaryKey]
+            public int ID { get; set; }
+            public string tipoAlimento { get; set; }
+            public string unidadAlimeto { get; set; }
+
+            public override string ToString()
+            {
+                return string.Format("{0}", tipoAlimento);
+            }
+        }
+
         public pageCocinar()
         {
             this.InitializeComponent();
@@ -81,6 +94,16 @@ namespace Gestion_Familiar
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void listviewProductos_Changed(object sender, SelectionChangedEventArgs e)
+        {
+            var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
+
+            using (var db = new SQLite.SQLiteConnection(dbpath))
+            {
+                comboboxTipoAlimento.ItemsSource = db.Table<listaProducto>();
+            }
         }
     }
 }

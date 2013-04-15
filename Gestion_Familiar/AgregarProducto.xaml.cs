@@ -20,6 +20,22 @@ using Windows.Storage.Streams;
 
 namespace Gestion_Familiar
 {
+<<<<<<< HEAD
+    public class TablaUnidadesProducto
+    {
+        [AutoIncrement, PrimaryKey]
+        public int ID { get; set; }
+
+        public string  tipoUnidad  { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}", tipoUnidad);
+        }
+    }
+    /// <summary>
+=======
+>>>>>>> cd9d77d30999594b64ef6e1051e4df8d49349847
 
    /// <summary>
     /// A basic page that provides characteristics common to most applications.

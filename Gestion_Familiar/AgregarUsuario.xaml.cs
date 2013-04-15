@@ -34,12 +34,12 @@ namespace Gestion_Familiar
         public AgregarUsuario()
         {
             this.InitializeComponent();
-           
+
             var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
 
             using (var db = new SQLite.SQLiteConnection(dbpath))
             {
-                listadoUsuarios.ItemsSource = db.Table<usuarios>().OrderBy(d=>d.Nombre).ToList();
+                listadoUsuarios.ItemsSource = db.Table<usuarios>().OrderBy(d => d.Nombre).ToList();
             }
         }
 
@@ -87,7 +87,7 @@ namespace Gestion_Familiar
                     using (IRandomAccessStream fileStream = await file.OpenAsync(FileAccessMode.Read))
                     {
                         bitmapImage.SetSource(fileStream);
-                        Variable =Convert.ToString(fileStream);
+                        Variable = Convert.ToString(fileStream);
                     }
 
                     CapturedPhoto.Source = bitmapImage;
@@ -122,7 +122,7 @@ namespace Gestion_Familiar
                         Nombre = textboxNombre.Text,
                         Contrasena = textboxContraseña.Text,
                         Tipo = Convert.ToInt32(toogleAdulto.ActualHeight),
-                        Foto= Variable
+                        Foto = Variable
 
 
                     });
@@ -151,12 +151,12 @@ namespace Gestion_Familiar
                         Tipo = Convert.ToInt32(toogleAdulto.ActualHeight)
                     });
                 });
+
+                listadoUsuarios.ItemsSource = db.Table<usuarios>().OrderBy(d => d.Nombre).ToList();
             }
-
-
         }
 
-      
+
 
         private void listadoUsuarios_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -169,12 +169,15 @@ namespace Gestion_Familiar
                 // db.RunInTransaction(() =>
                 //{
                 //    textboxNombre = db.Table<usuarios>().OrderBy(d=> d.Nombre);
-                 
+
                 //});
             }
-
-              
-            }
-
         }
+
+        private void listadoUsuarios_SelecctionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            textboxNombre.Text = listadoUsuarios.SelectedItem.ToString();
+            
+        }
+    }
     }
