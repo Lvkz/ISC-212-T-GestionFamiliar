@@ -72,7 +72,7 @@ namespace Gestion_Familiar
         {
             if (pageRoot != null)
             {
-                this.Frame.Navigate(typeof(Login));
+                this.Frame.Navigate(typeof(pageConsumir));
             }
         }
 

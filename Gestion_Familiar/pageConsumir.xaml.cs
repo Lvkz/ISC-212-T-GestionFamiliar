@@ -19,18 +19,11 @@ namespace Gestion_Familiar
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class pagePorVencer : Gestion_Familiar.Common.LayoutAwarePage
+    public sealed partial class pageConsumir : Gestion_Familiar.Common.LayoutAwarePage
     {
-        public pagePorVencer()
+        public pageConsumir()
         {
             this.InitializeComponent();
-
-            var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
-
-            using (var db = new SQLite.SQLiteConnection(dbpath))
-            {
-                listviewProductos.ItemsSource = db.Table<Categorias>();
-            }
         }
 
         /// <summary>
