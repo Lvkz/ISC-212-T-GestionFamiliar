@@ -1,6 +1,6 @@
 ﻿<common:LayoutAwarePage
     x:Name="pageRoot"
-    x:Class="Gestion_Familiar.pageConsumir"
+    x:Class="Gestion_Familiar.pageCocinar"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -13,13 +13,14 @@
     <Page.Resources>
 
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
-        <x:String x:Key="AppName">Consumir Producto</x:String>
+        <x:String x:Key="AppName">Preparación de Alimentos</x:String>
     </Page.Resources>
+
     <common:LayoutAwarePage.BottomAppBar>
         <AppBar IsOpen="True" IsSticky="True">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                   
+
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button x:Name="botonGuardar" Style="{StaticResource SaveAppBarButtonStyle}"/>
@@ -50,14 +51,18 @@
         </Grid>
 
         <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="245*"/>
+                <RowDefinition Height="69*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="123*"/>
                 <ColumnDefinition Width="1243*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Grid.RowSpan="2">
                 <StackPanel Width="320">
-                    <TextBlock TextWrapping="Wrap" Text="Área:" Style="{StaticResource SubheaderTextStyle}"/>
-                    <ComboBox Margin="0,9,0,0"/>
+                    <TextBlock TextWrapping="Wrap" Text="Tipo de Comida:" Style="{StaticResource SubheaderTextStyle}"/>
+                    <ComboBox x:Name="comboboxTipoAlimento" Margin="0,9,0,0"/>
                     <Border BorderBrush="Black" BorderThickness="1" Height="399" Margin="0,20,0,0">
                         <ListView x:Name="listviewProductos" ItemsSource="{Binding Mode=OneWay}" Margin="0,-1,0,0" >
                             <ListView.ItemTemplate>
@@ -84,31 +89,44 @@
                     <StackPanel Width="340">
                         <TextBlock TextWrapping="Wrap" Text="Detalles:" Style="{StaticResource HeaderTextStyle}"/>
                         <TextBlock TextWrapping="Wrap" Text="Producto:" Style="{StaticResource TitleTextStyle}" Margin="0,20,0,0"/>
-                        <TextBlock TextWrapping="Wrap" Text="TextBlock" Style="{StaticResource PageSubheaderTextStyle}"/>
-                        <TextBlock TextWrapping="Wrap" Text="Fecha de Compra:" Style="{StaticResource TitleTextStyle}"/>
-                        <TextBlock TextWrapping="Wrap" Text="TextBlock" Style="{StaticResource PageSubheaderTextStyle}"/>
-                        <TextBlock TextWrapping="Wrap" Text="Fecha Vencimiento:" Style="{StaticResource TitleTextStyle}"/>
-                        <TextBlock TextWrapping="Wrap" Text="TextBlock" Style="{StaticResource PageSubheaderTextStyle}"/>
-                        <TextBlock TextWrapping="Wrap" Text="Precio del Producto:" Style="{StaticResource TitleTextStyle}"/>
-                        <TextBlock TextWrapping="Wrap" Text="TextBlock" Style="{StaticResource PageSubheaderTextStyle}"/>
-                        <TextBlock TextWrapping="Wrap" Text="Lugar de Compra:" Style="{StaticResource TitleTextStyle}"/>
-                        <TextBlock TextWrapping="Wrap" Text="TextBlock" Style="{StaticResource PageSubheaderTextStyle}"/>
-                    </StackPanel>
-                    <StackPanel Width="442">
-                        <TextBlock TextWrapping="Wrap" Text="Imagen del Producto:" Style="{StaticResource TitleTextStyle}" Margin="0,60,0,0"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Height="290" Margin="0,8,10,0">
-                            <Image/>
-                        </Border>
-                        <TextBlock TextWrapping="Wrap" Text="Cantidad a Consumir:" Style="{StaticResource TitleTextStyle}" Margin="0,40,102,0"/>
+                        <TextBlock x:Name="tbProducto" TextWrapping="Wrap" Text="TextBlock" Style="{StaticResource PageSubheaderTextStyle}"/>
+                        <TextBlock TextWrapping="Wrap" Text="Cantidad a Consumir:" Style="{StaticResource TitleTextStyle}"/>
                         <StackPanel Height="32" Orientation="Horizontal" Margin="0,8,0,0">
-                            <TextBox TextWrapping="Wrap" Width="148"/>
+                            <TextBox x:Name="txtbxCantidad" TextWrapping="Wrap" Width="148"/>
                             <TextBlock TextWrapping="Wrap" Text="TextBlock" Style="{StaticResource PageSubheaderTextStyle}" Margin="10,0,0,6"/>
                         </StackPanel>
+                        <StackPanel Height="34" Orientation="Horizontal" Margin="0,40,0,0">
+                            <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="115" Click="btnLimpiar_Click"/>
+                            <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="115" Margin="30,0,0,0" Click="btnAgregar_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Width="442">
+                        <TextBlock TextWrapping="Wrap" Text="Total de Ingredientes:" Style="{StaticResource TitleTextStyle}" Margin="0,60,0,0"/>
+                        <Border BorderBrush="Black" BorderThickness="1" Height="402" Margin="0,8,10,0">
+                            <ListView x:Name="listviewIngredientes" ItemsSource="{Binding Mode=OneWay}" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="50" Margin="6">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,0,0,0">
+                                                <TextBlock Text="{Binding Categoria}" Style="{StaticResource TitleTextStyle}" TextWrapping="NoWrap"/>
+                                                <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" >
+                                                    <TextBlock Text="Cantidad: " Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap"/>
+                                                    <TextBlock Text="{Binding ID}" Style="{StaticResource CaptionTextStyle}"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Border>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Grid>
-
         <VisualStateManager.VisualStateGroups>
 
             <!-- Visual states reflect the application's view state -->

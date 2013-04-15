@@ -11,6 +11,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using SQLite;
+using System.Xml;
+using Windows.Storage;
+using Windows.Storage.Streams;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -19,11 +23,30 @@ namespace Gestion_Familiar
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainScreen : Gestion_Familiar.Common.LayoutAwarePage
+    public sealed partial class pageCocinar : Gestion_Familiar.Common.LayoutAwarePage
     {
-        public MainScreen()
+        public class TipoAlimento
+        {
+            [AutoIncrement, PrimaryKey]
+            public int ID { get; set; }
+            public string tipoAlimento { get; set; }
+
+            public override string ToString()
+            {
+                return string.Format("{0}", tipoAlimento);
+            }
+        }
+
+        public pageCocinar()
         {
             this.InitializeComponent();
+
+            var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
+
+            using (var db = new SQLite.SQLiteConnection(dbpath))
+            {
+                comboboxTipoAlimento.ItemsSource = db.Table<TipoAlimento>();
+            }
         }
 
         /// <summary>
@@ -37,7 +60,6 @@ namespace Gestion_Familiar
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            // Restore values stored in session state.
         }
 
         /// <summary>
@@ -50,57 +72,15 @@ namespace Gestion_Familiar
         {
         }
 
-        private void botonAgregarUsuario_Click(object sender, RoutedEventArgs e)
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-            if (pageRoot != null)
-            {
-
-                this.Frame.Navigate(typeof(AgregarUsuario));
-            }
+            txtbxCantidad.Text = "";
+            tbProducto.Text = "";
         }
 
-        private void botonAgregarProducto_Click(object sender, RoutedEventArgs e)
+        private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (pageRoot != null)
-            {
 
-                this.Frame.Navigate(typeof(AgregarProducto));
-            }
         }
-
-        private void btnConsumir_Click(object sender, RoutedEventArgs e)
-        {
-            if (pageRoot != null)
-            {
-                this.Frame.Navigate(typeof(pageConsumir));
-            }
-        }
-
-        private void btnMapa_Click(object sender, RoutedEventArgs e)
-        {
-            if (pageRoot != null)
-            {
-                this.Frame.Navigate(typeof(pageMapa));
-            }
-        }
-
-        private void btnPorVencer_Click(object sender, RoutedEventArgs e)
-        {
-            if (pageRoot != null)
-            {
-                this.Frame.Navigate(typeof(pagePorVencer));
-            }
-        }
-
-        private void btnCocinar_Click(object sender, RoutedEventArgs e)
-        {
-            if (pageRoot != null)
-            {
-                this.Frame.Navigate(typeof(pageCocinar));
-            }
-        }
-
-       
-       
     }
 }
