@@ -32,6 +32,19 @@ namespace Gestion_Familiar
             return string.Format("{0}", Categoria);
         }
     }
+
+    public class UnidadesProducto
+    {
+        [AutoIncrement, PrimaryKey]
+        public int ID { get; set; }
+
+        public string  tipoUnidad  { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}", tipoUnidad);
+        }
+    }
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
@@ -47,6 +60,7 @@ namespace Gestion_Familiar
             using (var db = new SQLite.SQLiteConnection(dbpath))
             {
                listviewCategorias.ItemsSource = db.Table<Categorias>();
+               comboboxUnidadMedida.ItemsSource = db.Table<UnidadesProducto>();
             }
         }
 
