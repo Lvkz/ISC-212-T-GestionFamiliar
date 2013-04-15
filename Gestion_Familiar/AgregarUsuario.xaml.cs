@@ -161,11 +161,11 @@ namespace Gestion_Familiar
             {
                 // db.CreateTable<usuarios>();
 
-                 db.RunInTransaction(() =>
-                {
-             
+                // db.RunInTransaction(() =>
+                //{
+                //    textboxNombre = db.Table<usuarios>().OrderBy(d=> d.Nombre);
                  
-                });
+                //});
             }
 
               

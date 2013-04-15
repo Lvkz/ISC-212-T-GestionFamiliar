@@ -73,8 +73,6 @@
             <StackPanel Grid.Column="1" Margin="480,-10,311,126">
                 <TextBlock TextWrapping="Wrap" Text="{StaticResource Nombre}" Style="{StaticResource BasicTextStyle}"/>
                 <TextBox x:Name="textboxNombre" TextWrapping="Wrap"/>
-                <TextBlock TextWrapping="Wrap" Text="{StaticResource Apellido}" Style="{StaticResource BasicTextStyle}" Margin="0,10,0,0"/>
-                <TextBox x:Name="textboxApellido" TextWrapping="Wrap"/>
                 <TextBlock TextWrapping="Wrap" Text="Contraseña" Style="{StaticResource BasicTextStyle}" Margin="0,10,0,0"/>
                 <TextBox x:Name="textboxContraseña" TextWrapping="Wrap"/>
                 <TextBlock TextWrapping="Wrap" Text="{StaticResource Accesos}" Style="{StaticResource BasicTextStyle}" HorizontalAlignment="Right" Width="354"/>
@@ -91,7 +89,7 @@
             </StackPanel>
             <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="534" VerticalAlignment="Top" Width="468" Margin="0,-4,0,0">
                 <Border BorderBrush="Black" BorderThickness="2" Height="532">
-                    <ListView x:Name="listadoUsuarios" Margin="0,0,-4,-2" IsEnabledChanged="listadoUsuarios_IsEnabledChanged"/>
+                    <ListView x:Name="listadoUsuarios" IsEnabledChanged="listadoUsuarios_IsEnabledChanged" />
                 </Border>
             </StackPanel>
         </Grid>

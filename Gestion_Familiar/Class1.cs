@@ -16,6 +16,10 @@ namespace Gestion_Familiar
         public string Contrasena { get; set; }
         public int Tipo { get; set; }
         public string Foto { get; set; }
+        public override string ToString()
+        {
+            return string.Format("{0}",Nombre);
+        }
         #endregion
        
 
@@ -49,16 +53,25 @@ namespace Gestion_Familiar
         public string LugarCompra { get; set; }
         public string Caracteristicas { get; set; }
         public int Cantidad { get; set; }
-
-
-        #endregion
-        #region Constructores
-  
-        
-        #endregion
-        #region Metodos
+        public override string ToString()
+        {
+            return string.Format("{0}", Producto);
+        }
 
         #endregion
+    
 
+    }
+    public class UnidadesProducto
+    {
+        [AutoIncrement, PrimaryKey]
+        public int ID { get; set; }
+
+        public string tipoUnidad { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}", tipoUnidad);
+        }
     }
 }

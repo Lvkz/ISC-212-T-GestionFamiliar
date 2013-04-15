@@ -11,26 +11,17 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using SQLite;
-using System.Xml;
-using Windows.Storage;
-using Windows.Storage.Streams;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
 namespace Gestion_Familiar
 {
-
-
-
-
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class AgregarProducto : Gestion_Familiar.Common.LayoutAwarePage
+    public sealed partial class pagePorVencer : Gestion_Familiar.Common.LayoutAwarePage
     {
-
-        public AgregarProducto()
+        public pagePorVencer()
         {
             this.InitializeComponent();
 
@@ -38,8 +29,7 @@ namespace Gestion_Familiar
 
             using (var db = new SQLite.SQLiteConnection(dbpath))
             {
-               listviewCategorias.ItemsSource = db.Table<Categorias>();
-               comboboxUnidadMedida.ItemsSource = db.Table<UnidadesProducto>();
+                listviewProductos.ItemsSource = db.Table<Categorias>();
             }
         }
 
@@ -64,54 +54,6 @@ namespace Gestion_Familiar
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
-        }
-
-        private void listviewCategorias_Changed(object sender, SelectionChangedEventArgs e)
-        {
-            labelSeleccion.Text = listviewCategorias.SelectedItem.ToString(); 
-        }
-
-        private void botonAnadir_Click(object sender, RoutedEventArgs e)
-        {
-            var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
-
-            using (var db = new SQLite.SQLiteConnection(dbpath))
-            {
-                db.CreateTable<Categorias>();
-
-                db.RunInTransaction(() =>
-                {
-                    db.Insert(new Categorias() { Categoria = txtbxNuevaCategoria.Text });
-                });
-
-                listviewCategorias.ItemsSource = db.Table<Categorias>();
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
-
-            using (var db = new SQLite.SQLiteConnection(dbpath))
-            {
-                db.CreateTable<Productos>();
-
-                db.RunInTransaction(() =>
-                {
-                    db.Insert(new Productos() {
-                        Articulo = labelSeleccion.Text,
-                        Precio=Convert.ToInt32( textboxPrecioProducto.Text),
-                        Usuario= "noc",
-                        Fecha=Convert.ToString( datepickerCompra.ValueString),
-                        FechaVencimiento=Convert.ToString(datepickerVencimiento.ValueString),
-                        Producto= textboxNombreProducto.Text,
-
-                    });
-                });
-
-                
-            }
-
         }
     }
 }

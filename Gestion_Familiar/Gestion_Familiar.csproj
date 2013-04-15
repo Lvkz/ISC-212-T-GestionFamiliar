@@ -134,8 +134,14 @@
     <Compile Include="MainScreen.xaml.cs">
       <DependentUpon>MainScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pageConsumir.xaml.cs">
+      <DependentUpon>pageConsumir.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pageMapa.xaml.cs">
       <DependentUpon>pageMapa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pagePorVencer.xaml.cs">
+      <DependentUpon>pagePorVencer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLite.cs" />
@@ -192,7 +198,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="pageConsumir.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pageMapa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pagePorVencer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
