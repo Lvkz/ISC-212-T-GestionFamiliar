@@ -89,7 +89,7 @@
             </StackPanel>
             <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="534" VerticalAlignment="Top" Width="468" Margin="0,-4,0,0">
                 <Border BorderBrush="Black" BorderThickness="2" Height="532">
-                    <ListView x:Name="listadoUsuarios" IsEnabledChanged="listadoUsuarios_IsEnabledChanged" />
+                    <ListView x:Name="listadoUsuarios" IsEnabledChanged="listadoUsuarios_IsEnabledChanged" SelectionChanged="listadoUsuarios_SelecctionChanged" />
                 </Border>
             </StackPanel>
         </Grid>

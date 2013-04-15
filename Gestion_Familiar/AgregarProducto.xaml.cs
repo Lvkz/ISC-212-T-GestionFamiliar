@@ -33,8 +33,11 @@ namespace Gestion_Familiar
         }
     }
     /// <summary>
+
+   /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
+    /// 
     public sealed partial class AgregarProducto : Gestion_Familiar.Common.LayoutAwarePage
     {
 
@@ -106,6 +109,8 @@ namespace Gestion_Familiar
 
                 db.RunInTransaction(() =>
                 {
+
+
                     db.Insert(new Productos() {
                         Articulo = labelSeleccion.Text,
                         Precio=Convert.ToInt32( textboxPrecioProducto.Text),
