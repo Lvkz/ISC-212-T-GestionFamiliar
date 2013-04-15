@@ -21,12 +21,14 @@ namespace Gestion_Familiar
     /// </summary>
     public sealed partial class MainScreen : Gestion_Familiar.Common.LayoutAwarePage
     {
+        int a=1;
         public MainScreen()
         {
             this.InitializeComponent();
-            
-        }
 
+            uno();
+        }
+       
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
         /// provided when recreating a page from a prior session.
@@ -100,6 +102,14 @@ namespace Gestion_Familiar
                 this.Frame.Navigate(typeof(pageCocinar));
             }
         }
+        public void uno()
+        {
+         
+        }
+
+        
+     
+
 
        
        

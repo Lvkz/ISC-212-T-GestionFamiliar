@@ -15,6 +15,7 @@ using SQLite;
 using System.Xml;
 using Windows.Storage;
 using Windows.Storage.Streams;
+using Windows.UI.Popups;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -59,9 +60,27 @@ namespace Gestion_Familiar
         }
 
   
-        private void btnVerificar_Click(object sender, RoutedEventArgs e)
+      
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
+
+            if (txtbxNombre.Text == "cesar" && txtbxPassword.Text == "123")
+            {
+                MessageDialog msgDialog = new MessageDialog("Hola ", "Usuario cesar");
+                msgDialog.ShowAsync();
+                
+                this.Frame.Navigate(typeof(MainScreen)); 
             
+            }
+
+            else
+            {
+                MessageDialog msgDialog = new MessageDialog("Error Contraseña o usuario", "Error");
+                msgDialog.ShowAsync();
+
+            }
+
         }
 
 

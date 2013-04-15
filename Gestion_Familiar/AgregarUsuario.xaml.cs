@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Windows.Foundation;
+
 using Windows.UI.Popups;
 
 using Windows.UI.Xaml;
@@ -126,6 +127,7 @@ namespace Gestion_Familiar
 
                     });
                 });
+
                 MessageDialog msgDialog = new MessageDialog("Usuario registrado", "Agregar Usuario");
                 msgDialog.ShowAsync();
                

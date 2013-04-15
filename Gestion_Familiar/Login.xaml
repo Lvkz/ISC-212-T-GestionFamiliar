@@ -13,7 +13,7 @@
     <Page.Resources>
 
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
-        <x:String x:Key="AppName">My Application</x:String>
+        <x:String x:Key="AppName">Login Usuarios</x:String>
     </Page.Resources>
 
     <!--
@@ -36,17 +36,13 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <StackPanel Grid.Row="1" Margin="125,0,0,0" >
+        <StackPanel Grid.Row="1" Margin="364,51,-545,-51" >
             <StackPanel Height="361" Margin="0,0,942,0">
                 <TextBlock TextWrapping="Wrap" Text="Nombre:" Style="{StaticResource BasicTextStyle}" Margin="0"/>
                 <TextBox x:Name="txtbxNombre" TextWrapping="Wrap"/>
                 <TextBlock TextWrapping="Wrap" Text="Contraseña:" Style="{StaticResource BasicTextStyle}" Margin="0,20,0,0"/>
                 <TextBox x:Name="txtbxPassword" TextWrapping="Wrap"/>
-                <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,0,0" />
-                <Button x:Name="btnVerificar" Content="Verificar Existencia" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,0,0" Click="btnVerificar_Click"/>
-                <Border BorderBrush="Black" BorderThickness="1" Height="32" Margin="0,20,0,0">
-                    <TextBlock x:Name="txtbxResultado" TextWrapping="Wrap" Style="{StaticResource BasicTextStyle}" Margin="-1,-1,-1,79"/>
-                </Border>
+                <Button x:Name="btnGuardar" Content="Ingresar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,0,0" Click="btnGuardar_Click" />
             </StackPanel>
         </StackPanel>
 
