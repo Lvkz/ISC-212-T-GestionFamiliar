@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Windows.Foundation;
-//using Windows.Foundation.Collections;
+
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -28,9 +28,17 @@ namespace Gestion_Familiar
     /// </summary>
     public sealed partial class AgregarUsuario : Gestion_Familiar.Common.LayoutAwarePage
     {
+        string Variable;
         public AgregarUsuario()
         {
             this.InitializeComponent();
+           
+            var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
+
+            using (var db = new SQLite.SQLiteConnection(dbpath))
+            {
+                listadoUsuarios.ItemsSource = db.Table<usuarios>().OrderBy(d=>d.Nombre).ToList();
+            }
         }
 
         /// <summary>
@@ -53,19 +61,19 @@ namespace Gestion_Familiar
         /// </summary>
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         /// 
-     
+
 
 
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
- 
+
         }
 
         private async void CapturePhoto_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-               // rootPage.NotifyUser("", NotifyType.StatusMessage);
+                // rootPage.NotifyUser("", NotifyType.StatusMessage);
 
                 // Using Windows.Media.Capture.CameraCaptureUI API to capture a photo
                 CameraCaptureUI dialog = new CameraCaptureUI();
@@ -79,22 +87,89 @@ namespace Gestion_Familiar
                     using (IRandomAccessStream fileStream = await file.OpenAsync(FileAccessMode.Read))
                     {
                         bitmapImage.SetSource(fileStream);
+                        Variable =Convert.ToString(fileStream);
                     }
 
-                    CapturedPhoto.Source = bitmapImage;                  
+                    CapturedPhoto.Source = bitmapImage;
                 }
                 else
                 {
-                  //  rootPage.NotifyUser("No photo captured.", NotifyType.StatusMessage);
+                    //  rootPage.NotifyUser("No photo captured.", NotifyType.StatusMessage);
                 }
             }
             catch (Exception ex)
             {
-              //  rootPage.NotifyUser(ex.Message, NotifyType.ErrorMessage);
+                //  rootPage.NotifyUser(ex.Message, NotifyType.ErrorMessage);
             }
-       
+
         }
-       
-       
+
+        private void botonAgregar_Click(object sender, RoutedEventArgs e)
+        {
+            var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
+
+            using (var db = new SQLite.SQLiteConnection(dbpath))
+            {
+                db.CreateTable<usuarios>();
+
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new usuarios()
+                    {
+                        Nombre = textboxNombre.Text,
+                        Contrasena = textboxContraseña.Text,
+                        Tipo = Convert.ToInt32(toogleAdulto.ActualHeight),
+                        Foto= Variable
+
+
+                    });
+                });
+
+                //  listviewCategorias.ItemsSource = db.Table<Categorias>();
+            }
+        }
+
+        private void botonEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
+
+            using (var db = new SQLite.SQLiteConnection(dbpath))
+            {
+                db.CreateTable<usuarios>();
+
+                db.RunInTransaction(() =>
+                {
+                    db.Delete(new usuarios()
+                    {
+                        Nombre = textboxNombre.Text,
+                        Contrasena = textboxContraseña.Text,
+                        Tipo = Convert.ToInt32(toogleAdulto.ActualHeight)
+                    });
+                });
+            }
+
+
+        }
+
+      
+
+        private void listadoUsuarios_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
+
+            using (var db = new SQLite.SQLiteConnection(dbpath))
+            {
+                // db.CreateTable<usuarios>();
+
+                 db.RunInTransaction(() =>
+                {
+             
+                 
+                });
+            }
+
+              
+            }
+
+        }
     }
-}

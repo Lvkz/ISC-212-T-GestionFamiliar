@@ -20,18 +20,7 @@ using Windows.Storage.Streams;
 
 namespace Gestion_Familiar
 {
-    public class Categorias
-    {
-        [AutoIncrement, PrimaryKey]
-        public int ID { get; set; }
-
-        public string Categoria { get; set; }
-
-        public override string ToString()
-        {
-            return string.Format("{0}", Categoria);
-        }
-    }
+  
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>

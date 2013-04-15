@@ -20,19 +20,7 @@ using Windows.Storage.Streams;
 
 namespace Gestion_Familiar
 {
-    public class Usuarios
-    {
-        [AutoIncrement, PrimaryKey]
-        public int ID { get; set; }
-
-        public string usuario { get; set; }
-        public string contrasena { get; set; }
-
-        public override string ToString()
-        {
-            return string.Format("{0}, {1}", contrasena, contrasena);
-        }
-    }
+    
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
@@ -42,23 +30,7 @@ namespace Gestion_Familiar
         {
             this.InitializeComponent();
 
-            var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
-
-            using (var db = new SQLite.SQLiteConnection(dbpath))
-            {
-                db.CreateTable<Usuarios>();
-
-                db.RunInTransaction(() =>
-                {
-                    for (int i = 0; i < 10; i++)
-                    {
-                        db.Insert(new Usuarios()
-                        {
-                            ID = i,
-                        });
-                    }
-                    }); 
-            }
+           
         }
 
         
@@ -86,11 +58,7 @@ namespace Gestion_Familiar
         {
         }
 
-        private async void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
+  
         private void btnVerificar_Click(object sender, RoutedEventArgs e)
         {
             
