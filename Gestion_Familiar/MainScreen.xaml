@@ -59,22 +59,22 @@
                         <TextBlock Text="Consumir" HorizontalAlignment="Center" Margin="0,10,0,0"/>
                     </StackPanel>
                 </Button>
-                
+
                 <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FF339933" BorderBrush="Black" BorderThickness="4">
                     <StackPanel Height="133">
                         <Image Source="Assets/Industry.png" Height="96" Width="100" VerticalAlignment="Top"/>
                         <TextBlock Text="Cocinar" HorizontalAlignment="Center" Margin="0,10,0,0"/>
                     </StackPanel>
                 </Button>
-                
+
                 <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FFF09609" BorderBrush="Black" BorderThickness="4">
                     <StackPanel Height="133">
                         <Image Source="Assets/Add.png" Height="96" Width="100" VerticalAlignment="Top"/>
                         <TextBlock Text="Agregar" HorizontalAlignment="Center" Margin="0,10,0,0"/>
                     </StackPanel>
                 </Button>
-                
-                <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FFE51400" BorderBrush="Black" BorderThickness="4">
+
+                <Button x:Name="btnPorVencer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FFE51400" BorderBrush="Black" BorderThickness="4" Click="btnPorVencer_Click">
                     <StackPanel Height="133">
                         <Image Source="Assets/Full recycle bin.png" Height="96" Width="100" VerticalAlignment="Top"/>
                         <TextBlock Text="Por Vencer" HorizontalAlignment="Center" Margin="0,10,0,0"/>
@@ -88,25 +88,24 @@
                         <TextBlock Text="Listado" HorizontalAlignment="Center" Margin="0,10,0,0"/>
                     </StackPanel>
                 </Button>
-                
+
                 <Button x:Name="btnMapa" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FF00ABA9" BorderBrush="Black" BorderThickness="4" Click="btnMapa_Click">
                     <StackPanel Height="133">
                         <Image Source="Assets/Camera.png" Height="96" Width="100" VerticalAlignment="Top"/>
                         <TextBlock Text="Mapa" HorizontalAlignment="Center" Margin="0,10,0,0"/>
                     </StackPanel>
                 </Button>
-                
-                <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FFA200FF" BorderBrush="Black" BorderThickness="4">
-                    <StackPanel Height="133">
-                        <Image Source="Assets/Dollar.png" Height="96" Width="100" VerticalAlignment="Top"/>
-                        <TextBlock Text="Comprar" HorizontalAlignment="Center" Margin="0,10,0,0"/>
-                    </StackPanel>
-                </Button>
-                
                 <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FF8CBF26" BorderBrush="Black" BorderThickness="4">
                     <StackPanel Height="133">
                         <Image Source="Assets/Problem.png" Height="96" Width="100" VerticalAlignment="Top"/>
                         <TextBlock Text="Agotados" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="90,0,0,0" FontFamily="Segoe UI Semibold" FontSize="22" VerticalContentAlignment="Bottom" Background="#FFA200FF" BorderBrush="Black" BorderThickness="4">
+                    <StackPanel Height="133">
+                        <Image Source="Assets/Dollar.png" Height="96" Width="100" VerticalAlignment="Top"/>
+                        <TextBlock Text="Comprar" HorizontalAlignment="Center" Margin="0,10,0,0"/>
                     </StackPanel>
                 </Button>
             </StackPanel>

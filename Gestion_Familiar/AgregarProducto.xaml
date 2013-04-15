@@ -14,7 +14,7 @@
     <common:LayoutAwarePage.Resources>
 
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
-        <x:String x:Key="AppName">Agregar Producto</x:String>
+        <x:String x:Key="AppName">Registrar Producto</x:String>
     </common:LayoutAwarePage.Resources>
 
     <!--
