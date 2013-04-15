@@ -68,6 +68,22 @@ namespace Gestion_Familiar
             }
         }
 
+        private void btnConsumir_Click(object sender, RoutedEventArgs e)
+        {
+            if (pageRoot != null)
+            {
+                this.Frame.Navigate(typeof(Login));
+            }
+        }
+
+        private void btnMapa_Click(object sender, RoutedEventArgs e)
+        {
+            if (pageRoot != null)
+            {
+                this.Frame.Navigate(typeof(pageMapa));
+            }
+        }
+
        
        
     }

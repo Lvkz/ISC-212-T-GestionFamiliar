@@ -75,24 +75,21 @@
             <StackPanel HorizontalAlignment="Left" Height="566" VerticalAlignment="Top" Width="310" Grid.Column="1">
                 <TextBlock TextWrapping="Wrap" Text="Categorías:" Style="{StaticResource BasicTextStyle}"/>
                 <Border BorderBrush="Black" BorderThickness="1" Height="460">
-                    <ListView x:Name="listviewCategorias" SelectionChanged="listviewCategorias_Changed">
-                        <Button Content="Supermercado" Style="{StaticResource TextPrimaryButtonStyle}" HorizontalAlignment="Left"/>
-                        <Button Content="Farmacia" Style="{StaticResource TextPrimaryButtonStyle}"/>
-                        <Button Content="Ferretería" Style="{StaticResource TextPrimaryButtonStyle}"/>
-                        <Button Content="Electrodomésticos" Style="{StaticResource TextPrimaryButtonStyle}"/>
+                    <ListView x:Name="listviewCategorias" SelectionChanged="listviewCategorias_Changed" ItemsSource="{Binding Mode=OneWay}">
+                        
                     </ListView>
 
                 </Border>
                 <TextBlock TextWrapping="Wrap" Text="Nueva Categoría:" Style="{StaticResource BasicTextStyle}" TextAlignment="Left" Margin="0,10,0,0"/>
                 <StackPanel Height="34" Orientation="Horizontal">
-                    <TextBox TextWrapping="Wrap" Width="230"/>
-                    <Button Content="Añadir" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,0,0"/>
+                    <TextBox x:Name="txtbxNuevaCategoria" TextWrapping="Wrap" Width="230"/>
+                    <Button x:Name="botonAnadir" Content="Añadir" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,0,0" Click="botonAnadir_Click"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="458" Margin="345,20,0,0" VerticalAlignment="Top" Width="739">
                 <StackPanel Height="36" Orientation="Horizontal">
                     <TextBlock TextWrapping="Wrap" Text="Estás agregando un elemento de: " Style="{StaticResource BasicTextStyle}"/>
-                    <TextBlock x:Name="labelSeleccion" TextWrapping="Wrap" Style="{StaticResource BasicTextStyle}" Margin="5,0,0,0"/>
+                    <TextBlock x:Name="labelSeleccion" TextWrapping="Wrap" Style="{StaticResource BasicTextStyle}" Margin="5,0,0,0" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Margin="0,0,67,0" Orientation="Horizontal">
                     <StackPanel Height="414">

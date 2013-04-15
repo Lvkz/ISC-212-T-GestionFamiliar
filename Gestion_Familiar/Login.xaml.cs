@@ -20,25 +20,25 @@ using Windows.Storage.Streams;
 
 namespace Gestion_Familiar
 {
-    public class Categorias
+    public class Usuarios
     {
         [AutoIncrement, PrimaryKey]
         public int ID { get; set; }
 
-        public string Categoria { get; set; }
+        public string usuario { get; set; }
+        public string contrasena { get; set; }
 
         public override string ToString()
         {
-            return string.Format("{0}", Categoria);
+            return string.Format("{0}, {1}", contrasena, contrasena);
         }
     }
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class AgregarProducto : Gestion_Familiar.Common.LayoutAwarePage
+    public sealed partial class Login : Gestion_Familiar.Common.LayoutAwarePage
     {
-
-        public AgregarProducto()
+        public Login()
         {
             this.InitializeComponent();
 
@@ -46,9 +46,22 @@ namespace Gestion_Familiar
 
             using (var db = new SQLite.SQLiteConnection(dbpath))
             {
-               listviewCategorias.ItemsSource = db.Table<Categorias>();
+                db.CreateTable<Usuarios>();
+
+                db.RunInTransaction(() =>
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        db.Insert(new Usuarios()
+                        {
+                            ID = i,
+                        });
+                    }
+                    }); 
             }
         }
+
+        
 
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
@@ -73,26 +86,16 @@ namespace Gestion_Familiar
         {
         }
 
-        private void listviewCategorias_Changed(object sender, SelectionChangedEventArgs e)
+        private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            labelSeleccion.Text = listviewCategorias.SelectedItem.ToString(); 
+            
         }
 
-        private void botonAnadir_Click(object sender, RoutedEventArgs e)
+        private void btnVerificar_Click(object sender, RoutedEventArgs e)
         {
-            var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
-
-            using (var db = new SQLite.SQLiteConnection(dbpath))
-            {
-                db.CreateTable<Categorias>();
-
-                db.RunInTransaction(() =>
-                {
-                    db.Insert(new Categorias() { Categoria = txtbxNuevaCategoria.Text });
-                });
-
-                listviewCategorias.ItemsSource = db.Table<Categorias>();
-            }
+            
         }
+
+
     }
 }
