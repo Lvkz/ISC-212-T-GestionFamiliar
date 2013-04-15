@@ -121,6 +121,7 @@
     <Compile Include="AgregarUsuario.xaml.cs">
       <DependentUpon>AgregarUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>

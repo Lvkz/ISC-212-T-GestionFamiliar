@@ -31,9 +31,9 @@
         <AppBar x:Name="bottomAppBar" Padding="10,0,10,0" IsSticky="True" IsOpen="True" >
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:Name="botonAgregar" Style="{StaticResource AddAppBarButtonStyle}"/>
+                    <Button x:Name="botonAgregar" Style="{StaticResource AddAppBarButtonStyle}" Click="botonAgregar_Click"/>
                     <Button x:Name="botonEditar" Style="{StaticResource EditAppBarButtonStyle}" />
-                    <Button x:Name="botonEliminar" Style="{StaticResource RemoveAppBarButtonStyle}" />
+                    <Button x:Name="botonEliminar" Style="{StaticResource RemoveAppBarButtonStyle}" Click="botonEliminar_Click" />
                     <Button x:Name="botonRefrescar" Style="{StaticResource RefreshAppBarButtonStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
@@ -73,14 +73,11 @@
             <StackPanel Grid.Column="1" Margin="480,-10,311,126">
                 <TextBlock TextWrapping="Wrap" Text="{StaticResource Nombre}" Style="{StaticResource BasicTextStyle}"/>
                 <TextBox x:Name="textboxNombre" TextWrapping="Wrap"/>
-                <TextBlock TextWrapping="Wrap" Text="{StaticResource Apellido}" Style="{StaticResource BasicTextStyle}" Margin="0,10,0,0"/>
-                <TextBox x:Name="textboxApellido" TextWrapping="Wrap"/>
-                <TextBlock TextWrapping="Wrap" Text="{StaticResource Edad}" Style="{StaticResource BasicTextStyle}" Margin="0,10,0,0"/>
-                <TextBox x:Name="textboxEdad" TextWrapping="Wrap"/>
-                <TextBlock TextWrapping="Wrap" Text="{StaticResource Accesos}" Style="{StaticResource BasicTextStyle}"/>
+                <TextBlock TextWrapping="Wrap" Text="Contraseña" Style="{StaticResource BasicTextStyle}" Margin="0,10,0,0"/>
+                <TextBox x:Name="textboxContraseña" TextWrapping="Wrap"/>
+                <TextBlock TextWrapping="Wrap" Text="{StaticResource Accesos}" Style="{StaticResource BasicTextStyle}" HorizontalAlignment="Right" Width="354"/>
                 <StackPanel Height="40" Orientation="Horizontal" Margin="0,10,-3,0" HorizontalAlignment="Right">
                     <ToggleButton x:Name="toogleAdulto" Content="{StaticResource Estado}" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0" Width="100"/>
-                    <ToggleButton x:Name="toogleCocina" Content="{StaticResource Cocina}" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="100"/>
                 </StackPanel>
                 <Button x:Name="CaptureButton" Content="{StaticResource CapturarFoto}" Click="CapturePhoto_Click" HorizontalAlignment="Left" Margin="0
                         ,10,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Right" />
@@ -92,7 +89,7 @@
             </StackPanel>
             <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="534" VerticalAlignment="Top" Width="468" Margin="0,-4,0,0">
                 <Border BorderBrush="Black" BorderThickness="2" Height="532">
-                    <ListView x:Name="listadoUsuarios" Margin="0,0,-4,-2"/>
+                    <ListView x:Name="listadoUsuarios" IsEnabledChanged="listadoUsuarios_IsEnabledChanged" />
                 </Border>
             </StackPanel>
         </Grid>

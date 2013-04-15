@@ -67,7 +67,7 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <Grid Grid.Row="1" Margin="26,30,-26,-30">
+        <Grid Grid.Row="1" Margin="30,33,-30,-33">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition/>
@@ -123,6 +123,9 @@
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
+            <Grid Grid.Column="1" HorizontalAlignment="Left" Height="130" Margin="857,478,0,0" VerticalAlignment="Top" Width="204">
+                <Button Content="Añadr" HorizontalAlignment="Left" Margin="54,10,0,0" VerticalAlignment="Top" Height="40" Width="101" Click="Button_Click"/>
+            </Grid>
         </Grid>
     </Grid>
 </common:LayoutAwarePage>

@@ -42,7 +42,7 @@
                 <TextBox x:Name="txtbxNombre" TextWrapping="Wrap"/>
                 <TextBlock TextWrapping="Wrap" Text="Contraseña:" Style="{StaticResource BasicTextStyle}" Margin="0,20,0,0"/>
                 <TextBox x:Name="txtbxPassword" TextWrapping="Wrap"/>
-                <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,0,0" Click="btnGuardar_Click"/>
+                <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,0,0" />
                 <Button x:Name="btnVerificar" Content="Verificar Existencia" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,0,0" Click="btnVerificar_Click"/>
                 <Border BorderBrush="Black" BorderThickness="1" Height="32" Margin="0,20,0,0">
                     <TextBlock x:Name="txtbxResultado" TextWrapping="Wrap" Style="{StaticResource BasicTextStyle}" Margin="-1,-1,-1,79"/>

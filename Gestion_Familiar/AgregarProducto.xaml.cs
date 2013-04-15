@@ -20,13 +20,12 @@ using Windows.Storage.Streams;
 
 namespace Gestion_Familiar
 {
-    public class Categorias
-    {
-        [AutoIncrement, PrimaryKey]
-        public int ID { get; set; }
 
-        public string Categoria { get; set; }
 
+<<<<<<< HEAD
+
+
+=======
         public override string ToString()
         {
             return string.Format("{0}", Categoria);
@@ -45,6 +44,7 @@ namespace Gestion_Familiar
             return string.Format("{0}", tipoUnidad);
         }
     }
+>>>>>>> 3687077d91fb2d603ec1631a148327bcc76fd722
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
@@ -107,6 +107,32 @@ namespace Gestion_Familiar
 
                 listviewCategorias.ItemsSource = db.Table<Categorias>();
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var dbpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "path.db");
+
+            using (var db = new SQLite.SQLiteConnection(dbpath))
+            {
+                db.CreateTable<Productos>();
+
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new Productos() {
+                        Articulo = labelSeleccion.Text,
+                        Precio=Convert.ToInt32( textboxPrecioProducto.Text),
+                        Usuario= "noc",
+                        Fecha=Convert.ToString( datepickerCompra.ValueString),
+                        FechaVencimiento=Convert.ToString(datepickerVencimiento.ValueString),
+                        Producto= textboxNombreProducto.Text,
+
+                    });
+                });
+
+                
+            }
+
         }
     }
 }

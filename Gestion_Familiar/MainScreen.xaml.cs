@@ -24,6 +24,7 @@ namespace Gestion_Familiar
         public MainScreen()
         {
             this.InitializeComponent();
+            
         }
 
         /// <summary>
